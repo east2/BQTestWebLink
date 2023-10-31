@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../bin/live-reload.js", "../src/index.ts"],
+  "sourcesContent": ["new EventSource(`${SERVE_ORIGIN}/esbuild`).addEventListener('change', () => location.reload());\r\n", "import { selectInputElement } from '@finsweet/ts-utils';\r\n\r\nimport { greetUser } from '$utils/greet';\r\n\r\nwindow.Webflow ||= [];\r\nwindow.Webflow.push(() => {\r\n  const defaultId = document.getElementById('default-id');\r\n  if (defaultId) {\r\n    defaultId.onclick = function () {\r\n      const fn = document.getElementById('fieldName');\r\n      if (fn) {\r\n        (<HTMLInputElement>fn).value = 'This is on my machine.';\r\n      }\r\n    };\r\n  }\r\n});\r\n\r\n// <script>document.getElementById('default-id').onclick = function() { document.getElementById('fieldName').value = 'clicked'; }</script>\r\n"],
+  "mappings": ";;;AAAA,MAAI,YAAY,GAAG,iCAAsB,EAAE,iBAAiB,UAAU,MAAM,SAAS,OAAO,CAAC;;;ACI7F,SAAO,YAAY,CAAC;AACpB,SAAO,QAAQ,KAAK,MAAM;AACxB,UAAM,YAAY,SAAS,eAAe,YAAY;AACtD,QAAI,WAAW;AACb,gBAAU,UAAU,WAAY;AAC9B,cAAM,KAAK,SAAS,eAAe,WAAW;AAC9C,YAAI,IAAI;AACN,UAAmB,GAAI,QAAQ;AAAA,QACjC;AAAA,MACF;AAAA,IACF;AAAA,EACF,CAAC;",
+  "names": []
+}
