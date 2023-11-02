@@ -8,6 +8,12 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 
 // Config entrypoint files
 const ENTRY_POINTS = ['src/index.ts'];
+// const ENTRY_POINTS = [
+//   'src/index.ts',
+//   'src/contact/whatever.ts',
+//   'src/hooyah.ts',
+//   'src/home/other.ts',
+// ];
 
 // Config dev serving
 const LIVE_RELOAD = !PRODUCTION;

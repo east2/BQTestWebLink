@@ -142,7 +142,8 @@ You can set up path aliases using the `paths` setting in `tsconfig.json`. This t
 ```json
 {
   "paths": {
-    "$utils/*": ["src/utils/*"]
+    "$utils/*": ["src/utils/*"],
+    "$auth-cognito/*": ["src/auth-cognito/*"]
   }
 }
 ```
