@@ -16,7 +16,7 @@ window.Webflow.push(() => {
     defaultId.onclick = function () {
       const fn = document.getElementById('field-name-notsure');
       if (fn) {
-        (<HTMLInputElement>fn).value = user.getUsername();
+        (<HTMLInputElement>fn).value = 'a new test';
         try {
           alert('in try.');
           throw new Error('too dumb');
