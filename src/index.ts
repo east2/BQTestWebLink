@@ -5,11 +5,6 @@ import UserPool from '$auth-cognito/UserPool';
 // import { signIn } from '$auth-cognito/cognito2';
 import { greetUser } from '$utils/greet';
 
-const user = new CognitoUser({
-  Username: 'e.fisher@computer.org',
-  Pool: UserPool,
-});
-
 window.Webflow ||= [];
 window.Webflow.push(() => {
   const user = new CognitoUser({
@@ -21,7 +16,7 @@ window.Webflow.push(() => {
     defaultId.onclick = function () {
       const fn = document.getElementById('field-name-notsure');
       if (fn) {
-        (<HTMLInputElement>fn).value = 'This is on my machine.';
+        (<HTMLInputElement>fn).value = user.getUsername();
         try {
           alert('in try.');
           throw new Error('too dumb');

@@ -5856,13 +5856,9 @@
   var UserPool_default = new SocialNotes(poolData);
 
   // src/index.ts
-  var user = new CognitoUser({
-    Username: "e.fisher@computer.org",
-    Pool: UserPool_default
-  });
   window.Webflow ||= [];
   window.Webflow.push(() => {
-    const user2 = new CognitoUser({
+    const user = new CognitoUser({
       Username: "e.fisher@computer.org",
       Pool: UserPool_default
     });
@@ -5871,7 +5867,7 @@
       defaultId.onclick = function() {
         const fn = document.getElementById("field-name-notsure");
         if (fn) {
-          fn.value = "This is on my machine.";
+          fn.value = user.getUsername();
           try {
             alert("in try.");
             throw new Error("too dumb");
