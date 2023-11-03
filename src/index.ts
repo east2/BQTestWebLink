@@ -7,10 +7,10 @@ import { greetUser } from '$utils/greet';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const user = new CognitoUser({
-    Username: 'e.fisher@computer.org',
-    Pool: UserPool,
-  });
+  // const user = new CognitoUser({
+  //   Username: 'e.fisher@computer.org',
+  //   Pool: UserPool,
+  // });
   const defaultId = document.getElementById('default-id');
   if (defaultId) {
     defaultId.onclick = function () {
