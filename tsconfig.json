@@ -1,10 +1,12 @@
 {
   "extends": "@finsweet/tsconfig",
   "compilerOptions": {
+    "jsx": "react-jsx",
     "rootDir": ".",
     "baseUrl": "./",
     "paths": {
-      "$utils/*": ["src/utils/*"]
+      "$utils/*": ["src/utils/*"],
+      "$auth-cognito/*": ["src/auth-cognito/*"]
     },
     "types": ["@finsweet/ts-utils"]
   }

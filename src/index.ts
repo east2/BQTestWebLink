@@ -1,15 +1,31 @@
-import { selectInputElement } from '@finsweet/ts-utils';
+// import { selectInputElement } from '@finsweet/ts-utils';
+import { CognitoUser } from 'amazon-cognito-identity-js';
 
+import UserPool from '$auth-cognito/UserPool';
+// import { signIn } from '$auth-cognito/cognito2';
 import { greetUser } from '$utils/greet';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  const user = new CognitoUser({
+    Username: 'e.fisher@computer.org',
+    Pool: UserPool,
+  });
   const defaultId = document.getElementById('default-id');
   if (defaultId) {
     defaultId.onclick = function () {
-      const fn = document.getElementById('fieldName');
+      const fn = document.getElementById('field-name-notsure');
       if (fn) {
-        (<HTMLInputElement>fn).value = 'This is on my machine.';
+        (<HTMLInputElement>fn).value = user.getUsername();
+        try {
+          alert('in try.');
+          throw new Error('too dumb');
+          // alert(user.getUsername());
+        } catch (error) {
+          alert(error.stack);
+        }
+        // greetUser('user.getUsername()');
+        // signIn('e.fisher@computer.org');
       }
     };
   }
