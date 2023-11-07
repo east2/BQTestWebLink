@@ -1,34 +1,80 @@
-// import { selectInputElement } from '@finsweet/ts-utils';
-import { CognitoUser } from 'amazon-cognito-identity-js';
+import { cookies } from 'next/headers';
 
-import UserPool from '$auth-cognito/UserPool';
-// import { signIn } from '$auth-cognito/cognito2';
-import { greetUser } from '$utils/greet';
-
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  // const user = new CognitoUser({
-  //   Username: 'e.fisher@computer.org',
-  //   Pool: UserPool,
-  // });
+/* eslint-disable prettier/prettier */
+const init = () => {
+  alert('in push');
   const defaultId = document.getElementById('default-id');
   if (defaultId) {
-    defaultId.onclick = function () {
+    alert('in defaultId');
+    defaultId.onclick = async function () {
       const fn = document.getElementById('field-name-notsure');
       if (fn) {
-        (<HTMLInputElement>fn).value = 'a new test';
-        try {
-          alert('in try.');
-          throw new Error('too dumb');
-          // alert(user.getUsername());
-        } catch (error) {
-          alert(error.stack);
-        }
-        // greetUser('user.getUsername()');
-        // signIn('e.fisher@computer.org');
+        alert('test');
+        fn.value = 'a new test';
+        // fetch("https://www.google.com/", { mode: 'no-cors' });
+        // const response = await fetch('https://yfjqz30vcg.execute-api.us-east-2.amazonaws.com/default/bq_login', {
+        //   mode: 'cors',
+        //   method: 'POST',
+        //   body: JSON.stringify({
+        //     'user_name': 'e.fisher@computer.org',
+        //     'password': 'pz8882Visa!',
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //     'Access-Control-Allow-Origin': '*',
+        //   },
+        // });
+
+        // const test = await response.json();
+        // cookies().set("accessToken", 'money');
+
+        const response = await fetch('https://wwustb5fyk.execute-api.us-east-2.amazonaws.com/qa', {
+          mode: 'cors',
+          method: 'GET',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
+
+        const test = await response.text();
+        cookies().set("accessToken", test);
+
+        // fetch('https://yfjqz30vcg.execute-api.us-east-2.amazonaws.com/default/bq_login', {
+        //   mode: 'no-cors',
+        //   method: 'POST',
+        //   body: JSON.stringify({
+        //     'user_name': 'e.fisher@computer.org',
+        //     'password': 'pz8882Visa!',
+        //   }),
+        //   headers: {
+        //     'Content-type': 'application/json',
+        //     'Access-Control-Allow-Origin': '*',
+        //   },
+        // })
+        //   .then((response) => response.json())
+        //   .then((responseJson) => { alert(responseJson); });
+        // .then((response) => {
+        //   if (!response.ok) {
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        //   } else {
+        //     alert(response.statusText);
+        //   }
+        //   return response;
+        // })
+        // .then((data) => {
+        //   alert('Response data: ' + data);
+        // })
+        // .catch((error) => {
+        //   alert('Fetch error: ' + error);
+        // });
       }
     };
   }
-});
+};
+
+window.Webflow ||= [];
+window.Webflow.push(init);
+
+init();
 
 // <script>document.getElementById('default-id').onclick = function() { document.getElementById('fieldName').value = 'clicked'; }</script>
