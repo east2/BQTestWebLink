@@ -2,14 +2,14 @@ import { cookies } from 'next/headers';
 
 /* eslint-disable prettier/prettier */
 const init = () => {
-  alert('in push');
+  // alert('in push');
   const defaultId = document.getElementById('default-id');
   if (defaultId) {
-    alert('in defaultId');
+    // alert('in defaultId');
     defaultId.onclick = async function () {
       const fn = document.getElementById('field-name-notsure');
       if (fn) {
-        alert('test');
+        // alert('test');
         fn.value = 'a new test';
         // fetch("https://www.google.com/", { mode: 'no-cors' });
         // const response = await fetch('https://yfjqz30vcg.execute-api.us-east-2.amazonaws.com/default/bq_login', {
@@ -76,6 +76,6 @@ const init = () => {
 window.Webflow ||= [];
 window.Webflow.push(init);
 
-init();
+// init();
 
 // <script>document.getElementById('default-id').onclick = function() { document.getElementById('fieldName').value = 'clicked'; }</script>
