@@ -30,9 +30,10 @@ const init = () => {
 
         const response = await fetch('https://wwustb5fyk.execute-api.us-east-2.amazonaws.com/qa', {
           mode: 'cors',
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Access-Control-Allow-Origin': '*',
+            'Origin': '*',
           },
         });
 
