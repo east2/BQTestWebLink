@@ -7,37 +7,27 @@ const init = () => {
   if (defaultId) {
     // alert('in defaultId');
     defaultId.onclick = async function () {
-      const fn = document.getElementById('field-name-notsure');
-      if (fn) {
+      const userNameCtrl = document.getElementById('field-name-notsure');
+      const passwordCtrl = document.getElementById('password-field');
+      if (userNameCtrl && passwordCtrl) {
         // alert('test');
-        fn.value = 'a new test';
-        // fetch("https://www.google.com/", { mode: 'no-cors' });
-        // const response = await fetch('https://yfjqz30vcg.execute-api.us-east-2.amazonaws.com/default/bq_login', {
-        //   mode: 'cors',
-        //   method: 'POST',
-        //   body: JSON.stringify({
-        //     'user_name': 'e.fisher@computer.org',
-        //     'password': 'pz8882Visa!',
-        //   }),
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //     'Access-Control-Allow-Origin': '*',
-        //   },
-        // });
-
-        // const test = await response.json();
-        // cookies().set("accessToken", 'money');
+        const userName: string = userNameCtrl.value;
+        const passwordString: string = passwordCtrl.value;
 
         const response = await fetch('https://wwustb5fyk.execute-api.us-east-2.amazonaws.com/qa', {
           mode: 'cors',
           method: 'POST',
+          body: JSON.stringify({
+            'user_name': userName,
+            'password': passwordString,
+          }),
           headers: {
             'Access-Control-Allow-Origin': '*',
             'Origin': '*',
           },
         });
 
-        const test = await response.text();
+        const test = await response.json();
         cookies().set("accessToken", test);
 
         // fetch('https://yfjqz30vcg.execute-api.us-east-2.amazonaws.com/default/bq_login', {
@@ -76,6 +66,6 @@ const init = () => {
 window.Webflow ||= [];
 window.Webflow.push(init);
 
-// init();
+init();
 
 // <script>document.getElementById('default-id').onclick = function() { document.getElementById('fieldName').value = 'clicked'; }</script>
