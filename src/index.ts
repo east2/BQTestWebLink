@@ -66,6 +66,6 @@ const init = () => {
 window.Webflow ||= [];
 window.Webflow.push(init);
 
-init();
+// init();
 
 // <script>document.getElementById('default-id').onclick = function() { document.getElementById('fieldName').value = 'clicked'; }</script>
